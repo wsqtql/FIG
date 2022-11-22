@@ -99,10 +99,11 @@ if torch.cuda.is_available():
 
 
 import itertools
-# The target minority class
-train_data = ImageFolder('/home/S2_WSQ/PyTorch-GAN-master/less_mnist', transform=transforms.Compose([transforms.ToTensor(),transforms.Grayscale(1), transforms.Normalize([0.5], [0.5])]))
-train_loader = DataLoader(train_data, opt.batch_size, True)
 # The whole training dataset
+train_data = ImageFolder('/home/S2_WSQ/PyTorch-GAN-master/imb_mnist', transform=transforms.Compose([transforms.ToTensor(),transforms.Grayscale(1), transforms.Normalize([0.5], [0.5])]))
+train_loader = DataLoader(train_data, opt.batch_size, True)
+
+# The target minority class
 train_data2 = ImageFolder('/home/S2_WSQ/PyTorch-GAN-master/less/2', transform=transforms.Compose([transforms.ToTensor(),transforms.Grayscale(1),  transforms.Normalize([0.5], [0.5])]))
 train_loader2 = DataLoader(train_data2, opt.batch_size, True)
 
